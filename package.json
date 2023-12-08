@@ -1,0 +1,14 @@
+{
+  "name": "testes-automatizados-e2e-front-serve-rest_cypress",
+  "version": "1.0.0",
+  "description": "Projeto de Testes Automatizados E2E no front e API REST do ServeRest em Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Andressa Karla",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.2.0"
+  }
+}
