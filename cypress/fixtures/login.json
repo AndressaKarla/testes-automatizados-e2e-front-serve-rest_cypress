@@ -2,5 +2,13 @@
     "adminValido1": {
         "emailValido1": "fulano@qa.com",
         "senhaValida1": "teste"
+    },
+    "invalido1": {
+        "emailInvalidoVazio1": "",
+        "senhaInvalidaVazia1": "",
+        "emailInvalidoDominioSemPonto1": "usuario4@outlook",
+        "senhaValida2": "teste2",
+        "emailInvalidoNaoCadastrado1": "usuario5@gmail.com",
+        "senhaInvalidaNaoCadastrada1": "teste3"
     }
 }

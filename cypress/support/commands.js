@@ -27,20 +27,24 @@ import seletores from './seletores'
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('realizarLoginEntrar', (email, senha) => {
+Cypress.Commands.add('realizarLoginEntrar', (email = '', senha = '') => {
     cy.get(seletores.LOGIN.CAMPO_EMAIL).as('campoEmail')
     cy.get(seletores.LOGIN.CAMPO_SENHA).as('campoSenha')
     cy.get(seletores.LOGIN.BOTAO_ENTRAR).as('botaoEntrar')
 
-    cy.get('@campoEmail')
-        .should('be.visible')
-        .click()
-        .type(email, { log: false })
+    if (email !== '') {
+        cy.get('@campoEmail')
+            .should('be.visible')
+            .click()
+            .type(email, { log: false })
+    }
 
-    cy.get('@campoSenha')
-        .should('be.visible')
-        .click()
-        .type(senha, { log: false })
+    if (senha !== '') {
+        cy.get('@campoSenha')
+            .should('be.visible')
+            .click()
+            .type(senha, { log: false })
+    }
 
     cy.get('@botaoEntrar')
         .should('be.visible')

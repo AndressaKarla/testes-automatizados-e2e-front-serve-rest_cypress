@@ -3,6 +3,7 @@ const seletores = {
         CAMPO_EMAIL: '#email',
         CAMPO_SENHA: 'input[name="password"]',
         BOTAO_ENTRAR: 'button[type="submit"]',
+        FORM_LOGIN: 'form[class="form"]',
         OPCAO_CADASTRE_SE: 'a[type="button"]'
     },
     HOME: {

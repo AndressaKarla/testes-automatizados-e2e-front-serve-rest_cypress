@@ -34,4 +34,32 @@ describe('Funcionalidade: Tela Login - Botão Entrar', () => {
       })
     })
   })
+
+  context('Esquema do Cenário: Validar Login usuários inválidos', () => {
+    context('Dado que eu acesse a tela de Login do front do ServeRest', () => {
+      beforeEach(() => {
+        cy.visit('/login')
+      })
+
+      context('Quando eu informar os campos de email e senha incorretamente', () => {
+        const exemplos = [
+          { email: 'emailInvalidoVazio1', senha: 'senhaInvalidaVazia1', mensagem: '×Email é obrigatório×Password é obrigatório' },
+          { email: 'emailInvalidoDominioSemPonto1', senha: 'senhaValida2', mensagem: 'Email deve ser um email válido' },
+          { email: 'emailInvalidoNaoCadastrado1', senha: 'senhaInvalidaNaoCadastrada1', mensagem: 'Email e/ou senha inválidos' },
+        ]
+
+        exemplos.forEach((ex) => {
+          it(`Então na tela Login deverá apresentar a mensagem ${ex.mensagem}`, () => {
+            cy.fixture('login').then((loginFixture) => {
+              cy.realizarLoginEntrar(loginFixture.invalido1[ex.email], loginFixture.invalido1[ex.senha])
+            })
+
+            cy.get(seletores.LOGIN.FORM_LOGIN)
+              .should('be.visible')
+              .should('contain', ex.mensagem)
+          })
+        })
+      })
+    })
+  })
 })
