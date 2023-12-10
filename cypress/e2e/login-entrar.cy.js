@@ -23,6 +23,8 @@ describe('Funcionalidade: Tela Login - Botão Entrar', () => {
         })
 
         it('Então deverá apresentar a tela Home com o texto Bem Vindo e com o texto Este é seu sistema para administrar seu ecommerce', () => {
+          cy.url().should('include', `${Cypress.config('baseUrl')}/admin/home`)
+          
           cy.get(seletores.HOME.TEXTO_BEM_VINDO)
             .should('be.visible')
             .should('contain', 'Bem Vindo')
