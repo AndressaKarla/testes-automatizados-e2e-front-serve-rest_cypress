@@ -165,7 +165,7 @@ npm install --force
 ---
 # :dart: Executar testes em um ambiente de desenvolvimento e Gerar os resultados dos testes no computador
 
-## :triangular_flag_on_post: Executar os testes automatizados e2e (ponta a ponta) no navegador chrome na interface do Cypress
+## :triangular_flag_on_post: Executar os testes automatizados e2e (ponta a ponta) no navegador chrome na interface gráfica do Cypress no computador
 - Abrir uma janela do "Windows Explorer"
 - Acessar o diretório onde foi clonado o projeto “testes-automatizados-e2e-front-serve-rest_cypress”
 - Copiar esse diretório 
