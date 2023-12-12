@@ -35,7 +35,12 @@ login-entrar.cy.js.mp4
 - Abrir uma outra janela do "Windows Explorer"
 - Acessar o diretório onde foi baixada a pasta compactada "cypress-screenshots-chrome.zip" anteriormente
 - Descompactar a pasta
-- Acessar a pasta descompactada "cypress-screenshots-chrome"
+- Na pasta descompactada "cypress-screenshots-chrome", acessar "nome-suite-testes.cy.js"
+
+Ex.:
+```
+login-entrar.cy.js
+``` 
 - Clicar 2 vezes sob os screenshots gerados e armazenados anteriormente no GitHub Actions e descompactados para ser abertos e verificados no computador
 
 Ex.:
@@ -221,7 +226,7 @@ code .
    
 ## :bookmark_tabs: Vídeos no computador
 - No VS Code aberto anteriormente, acessar "cypress > videos"
-
+  
 Ex.:
 ```
 login-entrar.cy.js.mp4
@@ -230,8 +235,14 @@ login-entrar.cy.js.mp4
 
 ## :bookmark_tabs: Screenshots no computador
 ## :x: Em caso de falha dos testes, verificar os screenshots 
-- No VS Code aberto anteriormente, acessar "cypress > screenshots" 
+- No VS Code aberto anteriormente, em "cypress > screenshots", acessar "nome-suite-testes.cy.js"
 
+Ex.:
+```
+login-entrar.cy.js
+``` 
+- Clicar 2 vezes sob os screenshots 
+  
 Ex.:
 ```
 Funcionalidade Tela Login - Botão Entrar -- Cenário Validar Login usuário administrador ... .png
