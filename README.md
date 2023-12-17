@@ -208,7 +208,7 @@ Ex.:
 ```
 cd "C:\Users\usuario\Desktop\testes-automatizados-e2e-front-serve-rest_cypress"
 ```
-- Informar o comando abaixo para executar os testes em modo headless (2° plano - mesmo modo e comando que é utilizado no "Passo 2" da "Pipeline Testes Automatizados E2E (Ponta a Ponta) Front ServeRest Cypress" em ".github > workflows > [workflow-testes-automatizados-e2e-front-serve-rest-cypress.yml](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/.github/workflows/workflow-testes-automatizados-e2e-front-serve-rest-cypress.yml)" no GitHub Actions) e Gerar os resultados dos testes no computador:
+- Informar o comando abaixo para executar todas as features e/ou cenários do projeto em modo headless (2° plano - mesmo modo e comando que é utilizado no "Passo 2" da "Pipeline Testes Automatizados E2E (Ponta a Ponta) Front ServeRest Cypress" em ".github > workflows > [workflow-testes-automatizados-e2e-front-serve-rest-cypress.yml](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/.github/workflows/workflow-testes-automatizados-e2e-front-serve-rest-cypress.yml)" no GitHub Actions) e Gerar os resultados dos testes no computador:
 ```
 npx cypress run --browser chrome
 ```
