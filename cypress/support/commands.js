@@ -36,7 +36,7 @@ Cypress.Commands.add('realizarLoginEntrar', (email = '', senha = '') => {
         cy.get('@campoEmail')
             .should('be.visible')
             .click()
-            .type(email, { log: false })
+            .type(email)
     }
 
     if (senha !== '') {
