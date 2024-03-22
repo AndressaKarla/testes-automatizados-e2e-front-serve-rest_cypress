@@ -30,8 +30,12 @@ jobs:
     steps:
       - name: Passo 1 - Obter cópia do código-fonte do repositório
         uses: actions/checkout@v3.3.0
+
+      - name: Passo 2 - Redirecionar o conteúdo de "secrets.LOGIN_ENV" para o arquivo "login.json"
+        run: |
+          echo '${{ secrets.LOGIN_ENV }}' > ./cypress/fixtures/login.json
         
-      - name: Passo 2 - Instalar dependências, Executar testes em modo headless (2º plano) em um ambiente de desenvolvimento e Gerar os resultados dos testes
+      - name: Passo 3 - Instalar dependências, Executar testes em modo headless (2º plano) em um ambiente de desenvolvimento e Gerar os resultados dos testes
         uses: cypress-io/github-action@v5.0.8
         with:
           # forçar, mesmo tendo possíveis conflitos, a instalação das dependências do projeto do arquivo "package.json"
@@ -56,5 +60,4 @@ jobs:
         with:
           name: cypress-screenshots-chrome
           path: ./cypress/screenshots
-          # armazena por 30 dias
           retention-days: 30

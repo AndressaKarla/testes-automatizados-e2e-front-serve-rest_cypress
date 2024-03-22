@@ -1,0 +1,14 @@
+{
+    "adminValido": {
+        "emailValido": "informar-email-usuario-admin-valido@dominio.com",
+        "senhaValida": "informar-senha-usuario-admin-valido"
+    },
+    "invalido": {
+        "emailInvalidoVazio": "deixar-apenas-as-aspas-duplas",
+        "senhaInvalidaVazia": "deixar-apenas-as-aspas-duplas",
+        "emailInvalidoDominioSemPonto": "informar-email-usuario-invalido-dominio-sem-ponto@dominio",
+        "senhaValida": "informar-senha-usuario-valido",
+        "emailInvalidoNaoCadastrado": "informar-email-usuario-invalido-nao-cadastrado@dominio.com",
+        "senhaInvalidaNaoCadastrada": "informar-senha-usuario-invalido-nao-cadastrada"
+    }
+}
