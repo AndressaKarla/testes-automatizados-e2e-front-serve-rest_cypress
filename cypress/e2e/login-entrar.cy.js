@@ -6,9 +6,15 @@ import seletores from '../support/seletores'
     Como usuário da Tela Login do front do ServeRest
     Quero clicar no Botão Entrar
     Para validar o comportamento da funcionalidade
- */
+*/
 
 describe('Funcionalidade: Tela Login - Botão Entrar', () => {
+  before(() => {
+    cy.fixture('usuario').then((usuarioFixture) => {
+      cy.obterPorEmailEincluirUsuarioAdmin(usuarioFixture.adminValido.nomeValido, usuarioFixture.adminValido.emailValido, usuarioFixture.adminValido.senhaValida)
+    })
+  })
+
   context('Dado que eu acesse a tela de Login do front do ServeRest', () => {
     beforeEach(() => {
       cy.visit('/login')
@@ -23,15 +29,15 @@ describe('Funcionalidade: Tela Login - Botão Entrar', () => {
         })
 
         it('Então deverá apresentar a tela Home com o texto Bem Vindo e com o texto Este é seu sistema para administrar seu ecommerce', () => {
-          cy.url().should('include', `${Cypress.config('baseUrl')}/admin/home`)
+          cy.url().should('be.equal', `${Cypress.config('baseUrl')}/admin/home`)
 
           cy.get(seletores.HOME.TEXTO_BEM_VINDO)
             .should('be.visible')
-            .should('contain', 'Bem Vindo')
+            .and('contain', 'Bem Vindo')
 
           cy.get(seletores.HOME.TEXTO_SISTEMA_ADMINISTRAR_ECOMMERCE)
             .should('be.visible')
-            .should('contain', 'Este é seu sistema para administrar seu ecommerce.')
+            .and('contain', 'Este é seu sistema para administrar seu ecommerce.')
         })
       })
     })
@@ -50,9 +56,9 @@ describe('Funcionalidade: Tela Login - Botão Entrar', () => {
               cy.realizarLoginBotaoEntrar(loginFixture.invalido[ex.email], loginFixture.invalido[ex.senha])
             })
 
-            cy.get(seletores.LOGIN.FORM_LOGIN)
+            cy.get(seletores.LOGIN.FORM)
               .should('be.visible')
-              .should('contain', ex.mensagem)
+              .and('contain', ex.mensagem)
           })
         })
       })

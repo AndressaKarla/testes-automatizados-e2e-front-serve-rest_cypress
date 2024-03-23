@@ -5,7 +5,9 @@
   "main": "cypress.config.js",
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cypress run --browser chrome"
+    "cy:open:local": "cypress open --env environment=local",
+    "test": "cypress run --browser chrome",
+    "test:local": "cypress run --env environment=local --browser chrome"
   },
   "author": "Andressa Karla",
   "license": "ISC",

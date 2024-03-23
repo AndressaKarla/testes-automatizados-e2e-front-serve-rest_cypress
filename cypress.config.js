@@ -9,8 +9,9 @@ module.exports = defineConfig({
       const environment = config.env.environment || 'dev'
       config.env = require(`./cypress/support/environments/${environment}.json`)
       config.baseUrl = config.env.baseUrl
-
+      const baseUri = config.env.baseUri
+      
       return config
-    },
-  },
+    }
+  }
 })
