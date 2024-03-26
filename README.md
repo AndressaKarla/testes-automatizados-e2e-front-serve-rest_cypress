@@ -170,7 +170,6 @@ C:\Users\usuario\Desktop\testes-automatizados-e2e-front-serve-rest_cypress
 ```
 npm install --force
 ```
-- Fechar esse cmder
 
 ## :hammer_and_wrench: Instalar as extensões no Visual Studio Code (VS Code)
 - Caso ainda não tenha o VS Code baixado e instalado, acessar o site do [Visual Studio Code](https://code.visualstudio.com/download), baixar e instalar com a opção "System Installer"
@@ -179,14 +178,14 @@ npm install --force
 - Em "Profile name", informar "Cypress"
 - Clicar na opção "Create"
 - Clicar na opção "Extensions", informar e instalar as extensões abaixo:
-  - Cypress Snippets
-    - Cliff Su
   - One Dark Pro
     - binaryify
       - Clicar na opção "One Dark Pro Darker" apresentada para habilitar a extensão
   - Material Icon Theme
     - Philipp Kief
       - Clicar na opção "Material Icon Theme" apresentada para habilitar a extensão
+  - Cypress Snippets
+    - Cliff Su
         
 ## :bookmark_tabs: Abrir o VS Code diretamente na pasta do projeto "testes-automatizados-e2e-front-serve-rest_cypress"
 - No cmder aberto anteriormente, informar o comando abaixo para abrir o VS Code diretamente na pasta do projeto "testes-automatizados-e2e-front-serve-rest_cypress"
@@ -198,7 +197,7 @@ code .
 - No VS Code aberto, caso seja apresentado "Do you trust the authors on the files in this folder?", marcar a opção "Trust the authors of all files in the parent folder ...."
 	- Clicar no botão "Yes, I trust the authors ...."
 
-## :hammer_and_wrench: Criar arquivos "login.json", "usuario.json", etc, informando os dados com base nos arquivos "login.example.json", "usuario.example.json", etc
+## :hammer_and_wrench: Criar arquivos "login.json", "usuario.json", informando os dados com base nos arquivos "login.example.json", "usuario.example.json", etc
 - No VS Code aberto anteriormente, acessar "cypress > fixtures"
 - Criar o arquivo "login.json"
   - Informar os dados com base no arquivo ["login.example.json"](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/cypress/fixtures/login.example.json)

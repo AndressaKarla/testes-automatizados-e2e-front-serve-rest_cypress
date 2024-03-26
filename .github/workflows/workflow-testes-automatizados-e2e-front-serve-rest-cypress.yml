@@ -31,7 +31,7 @@ jobs:
       - name: Passo 1 - Obter cópia do código-fonte do repositório
         uses: actions/checkout@v3.3.0
 
-      - name: Passo 2 - Redirecionar os conteúdos de "secrets.LOGIN_ENV", "secrets.USUARIO_ENV", etc, para os arquivos "login.json", "usuario.json", etc
+      - name: Passo 2 - Redirecionar os conteúdos de "secrets.LOGIN_ENV", "secrets.USUARIO_ENV", para os arquivos "login.json", "usuario.json", etc
         run: |
           echo '${{ secrets.LOGIN_ENV }}' > ./cypress/fixtures/login.json
           echo '${{ secrets.USUARIO_ENV }}' > ./cypress/fixtures/usuario.json
