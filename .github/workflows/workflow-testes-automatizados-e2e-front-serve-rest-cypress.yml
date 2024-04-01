@@ -55,9 +55,9 @@ jobs:
           # armazena por 30 dias
           retention-days: 30
 
-      - name: Passo 5 - Armazenar os resultados dos testes que falharam em screenshots
+      - name: Passo 5 - Armazenar os resultados dos testes em screenshots
         uses: actions/upload-artifact@v3
-        if: ${{ failure() }}
+        if: ${{ always() }}
         with:
           name: cypress-screenshots-chrome
           path: ./cypress/screenshots
@@ -85,20 +85,12 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
         with:
           install-command: npm install --force
-          browser: firefox
-          spec: ${{ github.event.inputs.spec }} 
+          command: npm run test:ff
+          browser: firefox 
 
-      - name: Passo 4 - Armazenar os resultados dos testes em vídeos
+      - name: Passo 4 - Armazenar os resultados dos testes em screenshots
         uses: actions/upload-artifact@v3
         if: ${{ always() }}
-        with:
-          name: cypress-videos-firefox
-          path: ./cypress/videos
-          retention-days: 30
-
-      - name: Passo 5 - Armazenar os resultados dos testes que falharam em screenshots
-        uses: actions/upload-artifact@v3
-        if: ${{ failure() }}
         with:
           name: cypress-screenshots-firefox
           path: ./cypress/screenshots

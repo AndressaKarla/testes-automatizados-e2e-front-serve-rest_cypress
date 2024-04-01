@@ -15,6 +15,10 @@ describe('Funcionalidade: Tela Login - Opção Cadastre-se', () => {
     })
   })
 
+  afterEach(() => {
+    cy.screenshot()
+  })
+
   context('Dado que eu acesse a tela de Login do front do ServeRest', () => {
     context('E que eu clique na opção Cadastre-se', () => {
       context('E que eu esteja na tela Cadastro', () => {

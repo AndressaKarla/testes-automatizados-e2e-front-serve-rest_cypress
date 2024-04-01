@@ -9,7 +9,7 @@
     "test": "cypress run --browser chrome",
     "test:ff": "cypress run --config video=false --browser firefox",
     "test:local": "cypress run --env environment=local --browser chrome",
-    "test:local:ff": "cypress run --env environment=local --browser firefox"
+    "test:local:ff": "cypress run --env environment=local --config video=false --browser firefox"
   },
   "author": "Andressa Karla",
   "license": "ISC",
