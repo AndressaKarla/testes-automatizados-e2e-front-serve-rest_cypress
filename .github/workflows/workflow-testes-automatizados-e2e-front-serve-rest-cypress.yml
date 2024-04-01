@@ -17,7 +17,7 @@ on:
         default: cypress/e2e/** 
 
 jobs:
-  testes-automatizados-e2e-front-serve-rest-cypress-chrome:
+  cypress-chrome:
     # agente de execução/runner do tipo máquina virtual bem enxuta, sem interface gráfica
     runs-on: ubuntu-latest
     
@@ -36,7 +36,7 @@ jobs:
           echo '${{ secrets.LOGIN_ENV }}' > ./cypress/fixtures/login.json
           echo '${{ secrets.USUARIO_ENV }}' > ./cypress/fixtures/usuario.json
         
-      - name: Passo 3 - Instalar dependências, Executar testes em modo headless (2º plano) em um ambiente de desenvolvimento e Gerar os resultados dos testes
+      - name: Passo 3 - Instalar dependências, Executar testes no navegador chrome em modo headless (2º plano) em um ambiente de desenvolvimento e Gerar os resultados dos testes
         uses: cypress-io/github-action@v5.0.8
         with:
           # forçar, mesmo tendo possíveis conflitos, a instalação das dependências do projeto do arquivo "package.json"
@@ -55,10 +55,43 @@ jobs:
           # armazena por 30 dias
           retention-days: 30
 
-      - name: Passo 5 - Armazenar os resultados dos testes que falharam em screenshots
+      - name: Passo 5 - Armazenar os resultados dos testes em screenshots
         uses: actions/upload-artifact@v3
-        if: ${{ failure() }}
+        if: ${{ always() }}
         with:
           name: cypress-screenshots-chrome
+          path: ./cypress/screenshots
+          retention-days: 30
+  
+  cypress-firefox:
+    # esse job "cypress-firefox" somente é executado se o job anterior "cypress-chrome" for executado com sucesso
+    needs: cypress-chrome
+    runs-on: ubuntu-latest
+    
+    container:
+      image: cypress/browsers:node18.12.0-chrome103-ff107
+      options: --user 1001
+      
+    steps:
+      - name: Passo 1 - Obter cópia do código-fonte do repositório
+        uses: actions/checkout@v3.3.0
+
+      - name: Passo 2 - Redirecionar os conteúdos de "secrets.LOGIN_ENV", "secrets.USUARIO_ENV", para os arquivos "login.json", "usuario.json", etc
+        run: |
+          echo '${{ secrets.LOGIN_ENV }}' > ./cypress/fixtures/login.json
+          echo '${{ secrets.USUARIO_ENV }}' > ./cypress/fixtures/usuario.json
+        
+      - name: Passo 3 - Instalar dependências, Executar testes no navegador firefox em modo headless (2º plano) em um ambiente de desenvolvimento e Gerar os resultados dos testes
+        uses: cypress-io/github-action@v5.0.8
+        with:
+          install-command: npm install --force
+          command: npm run test:ff
+          browser: firefox 
+
+      - name: Passo 4 - Armazenar os resultados dos testes em screenshots
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: cypress-screenshots-firefox
           path: ./cypress/screenshots
           retention-days: 30

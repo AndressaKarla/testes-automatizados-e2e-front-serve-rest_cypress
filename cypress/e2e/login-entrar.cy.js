@@ -15,6 +15,10 @@ describe('Funcionalidade: Tela Login - Botão Entrar', () => {
     })
   })
 
+  afterEach(() => {
+    cy.screenshot()
+  })
+
   context('Dado que eu acesse a tela de Login do front do ServeRest', () => {
     beforeEach(() => {
       cy.visit('/login')
