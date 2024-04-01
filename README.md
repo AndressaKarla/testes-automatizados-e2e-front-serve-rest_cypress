@@ -13,22 +13,22 @@ Esse projeto "testes-automatizados-e2e-front-serve-rest_cypress" é executado em
 ---
 # :dart: Executar testes em um ambiente de desenvolvimento e Gerar os resultados dos testes no GitHub Actions
 
-## :triangular_flag_on_post: Executar os testes automatizados e2e (ponta a ponta) no navegador chrome em modo headless (2° plano) e Gerar os resultados dos testes no GitHub Actions
+## :triangular_flag_on_post: Executar os testes automatizados e2e (ponta a ponta) no navegador chrome, firefox, etc em modo headless (2° plano) e Gerar os resultados dos testes no GitHub Actions
 - Nesse repositório, acessar a aba "Actions"
 - Na seção "Actions", clicar em "Pipeline Testes Automatizados E2E (Ponta a Ponta) Front ServeRest Cypress"
-- Em "This workflow has a workflow_dispatch event trigger.", clicar em "Run workflow" > "Run workflow" para executar os testes automatizados e2e (ponta a ponta) no navegador chrome em modo headless (2° plano) no GitHub Actions [com os conteúdos de "secrets.LOGIN_ENV", "secrets.USUARIO_ENV", etc (baseado nos arquivos ["login.example.json"](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/cypress/fixtures/login.example.json), ["usuario.example.json"](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/cypress/fixtures/usuario.example.json), etc, e configurados na aba "Settings" desse repositório > "Secrets and variables" > "Actions" > "Secrets" > "Repository secrets") que foram redirecionados para os arquivos "login.json", "usuario.json"]
+- Em "This workflow has a workflow_dispatch event trigger.", clicar em "Run workflow" > "Run workflow" para executar os testes automatizados e2e (ponta a ponta) no navegador chrome, firefox, em modo headless (2° plano) no GitHub Actions [com os conteúdos de "secrets.LOGIN_ENV", "secrets.USUARIO_ENV", etc (baseado nos arquivos ["login.example.json"](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/cypress/fixtures/login.example.json), ["usuario.example.json"](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/cypress/fixtures/usuario.example.json), etc, e configurados na aba "Settings" desse repositório > "Secrets and variables" > "Actions" > "Secrets" > "Repository secrets") que foram redirecionados para os arquivos "login.json", "usuario.json"]
 - Após o término da execução, clicar na run "Pipeline Testes Automatizados E2E (Ponta a Ponta) Front ServeRest Cypress"
-- Na seção "Artifacts", clicar em "cypress-videos-chrome"
-- Na janela aberta, escolher um diretório para baixar a pasta compactada "cypress-videos-chrome.zip"
-- Em caso de falha dos testes, na seção "Artifacts", clicar em "cypress-screenshots-chrome"
-- Na janela aberta, escolher um diretório para baixar a pasta compactada "cypress-screenshots-chrome.zip"
+- Na seção "Artifacts", clicar em "cypress-videos-chrome", "cypress-videos-firefox", etc
+- Na janela aberta, escolher um diretório para baixar a pasta compactada "cypress-videos-chrome.zip", "cypress-videos-firefox.zip", etc
+- Em caso de falha dos testes, na seção "Artifacts", clicar em "cypress-screenshots-chrome", "cypress-videos-firefox-firefox", etc
+- Na janela aberta, escolher um diretório para baixar a pasta compactada "cypress-screenshots-chrome.zip", "cypress-videos-firefox.zip", etc
 
 
 # Verificar os vídeos gerados e armazenados anteriormente no GitHub Actions e descompactados no computador :female_detective:
 - Abrir uma janela do "Windows Explorer"
-- Acessar o diretório onde foi baixada a pasta compactada "cypress-videos-chrome.zip" anteriormente
+- Acessar o diretório onde foi baixada a pasta compactada "cypress-videos-chrome.zip", "cypress-videos-firefox.zip" anteriormente
 - Descompactar a pasta
-- Acessar a pasta descompactada "cypress-videos-chrome"
+- Acessar a pasta descompactada "cypress-videos-chrome", "cypress-videos-firefox", etc
 - Clicar 2 vezes sob os vídeos gerados e armazenados anteriormente no GitHub Actions e descompactados para ser abertos e verificados no computador
 
 Ex.:
@@ -39,9 +39,9 @@ login-entrar.cy.js.mp4
 
 # Em caso de falha dos testes, verificar os screenshots gerados e armazenados anteriormente no GitHub Actions e descompactados no computador :female_detective:
 - Abrir uma outra janela do "Windows Explorer"
-- Acessar o diretório onde foi baixada a pasta compactada "cypress-screenshots-chrome.zip" anteriormente
+- Acessar o diretório onde foi baixada a pasta compactada "cypress-screenshots-chrome.zip", "cypress-videos-firefox.zip" anteriormente
 - Descompactar a pasta
-- Na pasta descompactada "cypress-screenshots-chrome", acessar "nome-suite-testes.cy.js"
+- Na pasta descompactada "cypress-screenshots-chrome", "cypress-videos-firefox", etc, acessar "nome-suite-testes.cy.js"
 
 Ex.:
 ```
@@ -247,10 +247,34 @@ Ex.:
 ```
 cd "C:\Users\usuario\Desktop\testes-automatizados-e2e-front-serve-rest_cypress"
 ```
-- Informar o comando abaixo para executar todas as features e/ou cenários do projeto em modo headless (2° plano - mesmo modo e comando semelhante ao que é utilizado no "Passo 3" da "Pipeline Testes Automatizados E2E (Ponta a Ponta) Front ServeRest Cypress" em ".github > workflows > [workflow-testes-automatizados-e2e-front-serve-rest-cypress.yml](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/.github/workflows/workflow-testes-automatizados-e2e-front-serve-rest-cypress.yml)" no GitHub Actions) e Gerar os resultados dos testes no computador:
+- Informar o comando abaixo para executar todas as features e/ou cenários do projeto em modo headless (2° plano - mesmo modo e comando semelhante ao que é utilizado no "Passo 3" do job "cypress-chrome" da "Pipeline Testes Automatizados E2E (Ponta a Ponta) Front ServeRest Cypress" em ".github > workflows > [workflow-testes-automatizados-e2e-front-serve-rest-cypress.yml](https://github.com/AndressaKarla/testes-automatizados-e2e-front-serve-rest_cypress/blob/main/.github/workflows/workflow-testes-automatizados-e2e-front-serve-rest-cypress.yml)" no GitHub Actions) e Gerar os resultados dos testes no computador:
 ```
 npm run test
 ```
+
+## :triangular_flag_on_post: Executar os testes automatizados e2e (ponta a ponta) no navegador firefox na interface gráfica do Cypress no computador
+- Abrir uma janela do "Windows Explorer"
+- Acessar o diretório onde foi clonado o projeto “testes-automatizados-e2e-front-serve-rest_cypress”
+- Copiar esse diretório 
+- Abrir um novo cmder
+- Informar o comando abaixo para acessar o projeto "testes-automatizados-e2e-front-serve-rest_cypress"
+```
+cd "<diretório copiado anteriormente>"
+```
+Ex.: 
+```
+cd "C:\Users\usuario\Desktop\testes-automatizados-e2e-front-serve-rest_cypress"
+```
+- Informar o comando abaixo para abrir a interface gráfica do Cypress 
+```
+npm run cy:open
+```
+- NÃO fechar esse cmder
+- Na interface gráfica do Cypress, clicar em "Continue"
+- Em "Welcome to Cypress!", clicar em "E2E Testing"
+- Em "Choose a browser", clicar em "Firefox"
+- Clicar em "Start E2E Testing in Firefox"
+- Em "testes-automatizados-e2e-front-serve-rest_cypress" > "Specs"> "E2E specs" > "cypress\e2e", clicar em "login-entrar", "login-cadastre-se", etc
 
 ---
 # Verificar os resultados das execuções dos testes automatizados e2e (ponta a ponta) no computador :female_detective:
