@@ -6,7 +6,7 @@ module.exports = defineConfig({
 
   e2e: {
     setupNodeEvents(on, config) {
-      const environment = config.env.environment || 'dev'
+      const environment = config.env.environment || 'prod'
       config.env = require(`./cypress/support/environments/${environment}.json`)
       config.baseUrl = config.env.baseUrl
       const baseUri = config.env.baseUri
