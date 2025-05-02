@@ -1,19 +1,19 @@
 {
   "name": "testes-automatizados-e2e-front-serve-rest_cypress",
   "version": "1.0.0",
-  "description": "Projeto de Testes Automatizados E2E no front e API REST do ServeRest em Cypress",
+  "description": "Projeto de Testes Automatizados E2E no front e API REST do ServeRest em Cypress v13.15.0",
   "main": "cypress.config.js",
   "scripts": {
     "cy:open": "cypress open",
     "cy:open:local": "cypress open --env environment=local",
-    "test": "cypress run --browser chrome",
+    "test": "cypress run --config video=true --browser chrome",
     "test:ff": "cypress run --config video=false --browser firefox",
-    "test:local": "cypress run --env environment=local --browser chrome",
+    "test:local": "cypress run --env environment=local --config video=true --browser chrome",
     "test:local:ff": "cypress run --env environment=local --config video=false --browser firefox"
   },
   "author": "Andressa Karla",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.2.0"
+    "cypress": "13.15.0"
   }
 }

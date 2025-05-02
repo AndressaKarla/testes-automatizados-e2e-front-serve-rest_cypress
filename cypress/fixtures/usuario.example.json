@@ -1,18 +1,24 @@
 {
-    "adminValido": {
-        "nomeValido": "informar-nome-usuario-admin-valido",
-        "emailValido": "informar-mesmo-email-usuario-admin-valido-fixture-login@qa.com",
-        "senhaValida": "informar-mesma-senha-usuario-admin-valido-fixture-login"
-    },
     "admin": {
-        "nomeValido1": "informar-outro-nome-usuario-admin-valido",
-        "emailValido": "informar-outro-email-usuario-admin-valido@gmail.com",
-        "senhaValida1": "informar-outra-senha-usuario-admin-valido",
-        "nomeInvalidoVazio": "deixar-apenas-as-aspas-duplas",
-        "emailInvalidoVazio": "deixar-apenas-as-aspas-duplas",
-        "senhaInvalidaVazia": "deixar-apenas-as-aspas-duplas",
-        "nomeValido2": "informar-outro-nome-usuario-admin-valido",
-        "emailInvalidoDominioSemPonto": "informar-email-usuario-admin-invalido-dominio-sem-ponto@yahoo",
-        "senhaValida2": "informar-outra-senha-usuario-admin-valido"
+        "nomeValido": "informar-nome-usuario-admin1-valido",
+        "emailValido": "informar-email-usuario-admin1-valido@qa.com",
+        "senhaValida": "informar-senha-usuario-admin1-valida",
+        "nomeValido2": "informar-outro-nome-usuario-admin2-valido",
+        "emailValido2": "informar-outro-email-usuario-admin2-valido@gmail.com",
+        "senhaValida2": "informar-outra-senha-usuario-admin2-valida",
+        "nomeInvalidoVazio": "",
+        "emailInvalidoVazio": "",
+        "senhaInvalidaVazia": "",
+        "nomeValido3": "informar-outro-nome-usuario-admin3-valido",
+        "emailInvalidoDominioSemPonto": "informar-email-usuario-admin3-invalido-dominio-sem-ponto@yahoo",
+        "senhaValida3": "informar-outra-senha-usuario-admin3-valida"
+    },
+    "invalido": {
+        "emailInvalidoVazio": "",
+        "senhaInvalidaVazia": "",
+        "emailInvalidoDominioSemPonto": "informar-email-usuario-invalido-dominio-sem-ponto@outlook",
+        "senhaValida": "informar-senha-usuario-valida",
+        "emailInvalidoNaoCadastrado": "informar-email-usuario-invalido-nao-cadastrado@gmail.com",
+        "senhaInvalidaNaoCadastrada": "informar-senha-usuario-invalida-nao-cadastrada"
     }
 }
