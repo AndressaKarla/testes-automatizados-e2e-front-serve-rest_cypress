@@ -9,12 +9,6 @@ on:
     
   # permite também executar esse workflow manualmente na aba "Actions" do GitHub
   workflow_dispatch:
-    # entrada de dados
-    inputs:
-      spec: 
-        description: Executar testes automatizados E2E no navegador em modo headless (2º plano) por spec (suíte de testes) 
-        # executar por padrão todas as suítes de testes presentes na pasta "e2e" incluindo as subpastas
-        default: cypress/e2e/** 
 
 jobs:
   cypress-chrome:
@@ -39,10 +33,10 @@ jobs:
         with:
           # forçar, mesmo tendo possíveis conflitos, a instalação das dependências do projeto do arquivo "package.json"
           install-command: npm install --force
-          browser: chrome
           # Executar testes automatizados E2E em modo headless (2º plano)
-          spec: ${{ github.event.inputs.spec }} # configurado em "on > workflow_dispatch > inputs > spec"
-
+          command: npm run test
+          browser: chrome
+          
       - name: Passo 4 - Armazenar os resultados dos testes em vídeos
         # expressão condicional para que sempre seja executado independentemente dos resultados dos steps anteriores
         if: ${{ always() }}
