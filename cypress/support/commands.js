@@ -57,7 +57,7 @@ Cypress.Commands.add('cadastrarUsuario', (nome = '', email = '', senha = '') => 
 })
 
 // App Actions
-Cypress.Commands.add('obterPorEmailEexcluirUsuarioPorId', (email) => {
+Cypress.Commands.add('obterPorEmailEexcluirUsuarioPorIdPelaAPI', (email) => {
   cy.request({
     url: Cypress.env('baseUri') + `/usuarios?email=${email}`,
     method: 'GET',
@@ -71,13 +71,13 @@ Cypress.Commands.add('obterPorEmailEexcluirUsuarioPorId', (email) => {
         url: Cypress.env('baseUri') + `/usuarios/${idUsuarioRetornado}`,
         method: 'DELETE',
       }).then((response) => {
-        expect(response.status).to.equal(200)
+        expect(response.status).to.eql(200)
       })
     }
   })
 })
 
-Cypress.Commands.add('obterPorEmailEincluirUsuarioAdmin', (nome, email, senha) => {
+Cypress.Commands.add('cadastrarUsuarioPelaAPI', (nome, email, senha, admin) => {
   cy.request({
     url: Cypress.env('baseUri') + '/usuarios',
     method: 'POST',
@@ -89,9 +89,9 @@ Cypress.Commands.add('obterPorEmailEincluirUsuarioAdmin', (nome, email, senha) =
       "nome": nome,
       "email": email,
       "password": senha,
-      "administrador": "true"
+      "administrador": admin
     }
   }).then((response) => {
-    expect(response.status).to.equal(201)
+    expect(response.status).to.eql(201)
   })
 })

@@ -4,7 +4,7 @@ import selectors from '../support/selectors'
 describe('Funcionalidade: Tela Cadastro de usuários \n- Como usuário da Tela Login do front do ServeRest \n- Quero clicar na opção Cadastre-se \n- Para validar o comportamento da funcionalidade', () => {
   before(() => {
     cy.fixture('usuario').then((usuarioFixture) => {
-      cy.obterPorEmailEexcluirUsuarioPorId(usuarioFixture.admin.emailValido2)
+      cy.obterPorEmailEexcluirUsuarioPorIdPelaAPI(usuarioFixture.admin.emailValido2)
     })
   })
 
@@ -22,7 +22,7 @@ describe('Funcionalidade: Tela Cadastro de usuários \n- Como usuário da Tela L
             .should('be.visible')
             .click()
 
-          cy.url().should('be.equal', `${Cypress.config('baseUrl')}/cadastrarusuarios`)
+          cy.url().should('be.eql', `${Cypress.config('baseUrl')}/cadastrarusuarios`)
         })
 
         context('Esquema do Cenário: Validar Cadastro Administrador', () => {
