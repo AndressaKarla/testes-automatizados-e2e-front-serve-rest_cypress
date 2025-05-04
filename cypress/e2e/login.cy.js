@@ -28,7 +28,7 @@ describe('Funcionalidade: Tela Login \n- Como usuário da Tela Login do front do
         })
 
         it(`Então deverá apresentar a tela Home com o texto ${selectors.HOME.TEXTO_BEM_VINDO.TEXTO} e com o texto ${selectors.HOME.TEXTO_SISTEMA_ADMINISTRAR_ECOMMERCE.TEXTO}`, () => {
-          cy.url().should('be.eql', `${Cypress.config('baseUrl')}/admin/home`)
+          cy.url().should('be.equal', `${Cypress.config('baseUrl')}/admin/home`)
 
           cy.fixture('usuario').then((usuarioFixture) => {
             cy.get(selectors.HOME.TEXTO_BEM_VINDO.SELECTOR)
