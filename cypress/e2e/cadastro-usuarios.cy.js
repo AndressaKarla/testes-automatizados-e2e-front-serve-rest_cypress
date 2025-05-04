@@ -22,7 +22,7 @@ describe('Funcionalidade: Tela Cadastro de usuários \n- Como usuário da Tela L
             .should('be.visible')
             .click()
 
-          cy.url().should('be.eql', `${Cypress.config('baseUrl')}/cadastrarusuarios`)
+          cy.url().should('be.equal', `${Cypress.config('baseUrl')}/cadastrarusuarios`)
         })
 
         context('Esquema do Cenário: Validar Cadastro Administrador', () => {
