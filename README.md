@@ -3,7 +3,7 @@
 [![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
 ---
 # :information_source: Introdução
-Esse projeto "testes-automatizados-e2e-front-serve-rest_cypress" é executado em um ambiente de produção no ["front"](https://front.serverest.dev) e na ["API REST"](https://serverest.dev) do ["ServeRest"](https://github.com/ServeRest) que simula uma loja virtual, nos navegadores Chrome e Firefox; nos Sistemas Operacionais Windows 10 e Linux Ubuntu 22.04, com o objetivo de praticar ainda mais testes automatizados e2e (ponta a ponta) em Cypress v13.15.0, Javascript, Commands, App Actions e GitHub Actions.
+Esse projeto "testes-automatizados-e2e-front-serve-rest_cypress" é executado em um ambiente de produção no ["front"](https://front.serverest.dev) e na ["API REST"](https://serverest.dev) do ["ServeRest"](https://github.com/ServeRest) que simula uma loja virtual, nos navegadores Chrome e Firefox; nos Sistemas Operacionais Windows 10 e Linux Ubuntu 22.04, com o objetivo de praticar ainda mais testes automatizados e2e (ponta a ponta) em Cypress v13.15.0, Javascript, Commands, App Actions, Gherkin (Dado, Qaundo e Então) sem Cucumber e GitHub Actions.
 
 - Documentações de referência
   - Cypress:
