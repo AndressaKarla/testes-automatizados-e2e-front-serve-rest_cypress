@@ -296,11 +296,11 @@ login.cy.js
   
 Ex.:
 ```
-Funcionalidade Tela Cadastro de usuários ... -- Então na tela de Cadastro deverá apresentar a mensagem ... (failed).png
+Cadastrar usuários -- Cenário Cadastrar usuário válido ou inválido ... - Apresentar mensagem ... (failed).png
 . . .
-Funcionalidade Tela Login ... -- Então deverá apresentar a tela Home ... -- after each hook.png
+Login -- Cenário Login com usuário administrador - Apresentar tela Home ... -- after each hook.png
 . . .
-Funcionalidade Tela Login ... -- Então na tela Login deverá apresentar a mensagem ... -- after each hook.png
+Login -- Cenário Login com usuário inválido ... - Apresentar mensagem ... -- after each hook.png
 ```   
 
 ---
