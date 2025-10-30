@@ -85,7 +85,7 @@ Funcionalidade Tela Login ... -- Então na tela Login deverá apresentar a mensa
 
 ## :hammer_and_wrench: Instalar algumas dependências necessárias 
 ### Desinstalar completamente Node.js e npm que já foram instalados em algum outro momento
-- Seguir os passos apresentados nesse link ["Guia Passo a Passo para Remover o Node.js no Windows"](https://cursos.qaxperience.com/pt/blog/guia-passo-a-passo-para-remover-o-node-no-windows)
+- Seguir os passos apresentados neste [link](https://www.google.com/search?q=desinstalar+completamente+nodejs+e+res%C3%ADduos+windows+11+pt-br+sem+programas+terceiros)
   
 ### Node versão 18.12.1
 - Baixar e instalar o [node v18.12.1](https://nodejs.org/dist/v18.12.1/) > node-v18.12.1-x64.msi
@@ -296,11 +296,11 @@ login.cy.js
   
 Ex.:
 ```
-Funcionalidade Tela Cadastro de usuários ... -- Então na tela de Cadastro deverá apresentar a mensagem ... (failed).png
+Cadastrar usuários -- Cenário Cadastrar usuário válido ou inválido ... - Apresentar mensagem ... (failed).png
 . . .
-Funcionalidade Tela Login ... -- Então deverá apresentar a tela Home ... -- after each hook.png
+Login -- Cenário Login com usuário administrador - Apresentar tela Home ... -- after each hook.png
 . . .
-Funcionalidade Tela Login ... -- Então na tela Login deverá apresentar a mensagem ... -- after each hook.png
+Login -- Cenário Login com usuário inválido ... - Apresentar mensagem ... -- after each hook.png
 ```   
 
 ---
