@@ -15,8 +15,10 @@ describe('Login', () => {
     cy.visit('/login')
   })
 
-  afterEach(() => {
-    cy.screenshot()
+  afterEach(function () {
+    if (this.currentTest.state === 'passed') {
+      cy.screenshot()
+    }
   })
 
   it('Cenário: Login com usuário administrador - Apresentar tela Home com textos de boas vindas e de administrar ecommerce', () => {
@@ -38,7 +40,7 @@ describe('Login', () => {
 
     cy.get(selectors.HOME.TEXTO_SISTEMA_ADMINISTRAR_ECOMMERCE.SELECTOR)
       .should('be.visible')
-      
+
       // Apresentar a tela Home com texto Este é seu sistema para administrar seu ecommerce
       .and('contain', selectors.HOME.TEXTO_SISTEMA_ADMINISTRAR_ECOMMERCE.TEXTO)
   })

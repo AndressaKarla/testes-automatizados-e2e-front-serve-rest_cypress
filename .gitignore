@@ -1,4 +1,5 @@
 cypress/downloads
+cypress/reports
 cypress/fixtures/*.json
 !cypress/fixtures/*.example.json
 cypress/videos

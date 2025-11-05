@@ -13,8 +13,10 @@ describe('Cadastrar Usuários', () => {
     cy.visit('/login')
   })
 
-  afterEach(() => {
-    cy.screenshot()
+  afterEach(function () {
+    if (this.currentTest.state === 'passed') {
+      cy.screenshot()
+    }
   })
 
   const exemplos = [
