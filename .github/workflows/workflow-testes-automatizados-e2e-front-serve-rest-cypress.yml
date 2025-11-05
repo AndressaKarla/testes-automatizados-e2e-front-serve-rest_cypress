@@ -87,7 +87,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./cypress/reports
+          path: ./cypress/reports/html
           retention-days: 30
 
       - name: Passo 10 - Deploy/Publicar no Github Pages na "url" configurada em "cypress-chrome > environment" apenas na branch principal (main)
