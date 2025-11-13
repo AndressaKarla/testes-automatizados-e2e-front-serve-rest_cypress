@@ -18,7 +18,10 @@ jobs:
     permissions:
       contents: write
       pages: write
-      id-token: write 
+      id-token: write
+
+    # envionment com "name: github-pages" e "url: https://andressakarla.github.io/testes-automatizados-e2e-front-serve-rest_cypress/index.html" configurado automaticamente e aplicado apenas na branch principal (main)
+    environment: ${{ github.ref == 'refs/heads/main' && 'github-pages' || '' }}  
     
     # template cypress com todas as dependências necessárias para executar os testes
     container:
@@ -86,11 +89,8 @@ jobs:
           path: ./cypress/reports/html
           retention-days: 30
 
-      - name: Passo 10 - Deploy/Publicar no Github Pages na "url" configurada apenas na branch principal (main)
+      - name: Passo 10 - Deploy/Publicar no Github Pages na "url" configurada automaticamente em "cypress-chrome > environment" apenas na branch principal (main)
         if: github.ref == 'refs/heads/main'
-        environment:
-          name: github-pages
-          url: https://andressakarla.github.io/testes-automatizados-e2e-front-serve-rest_cypress/index.html 
         id: deployment
         uses: actions/deploy-pages@v4
   
