@@ -20,7 +20,7 @@ jobs:
       pages: write
       id-token: write
 
-    # envionment com "name: github-pages" e "url: https://andressakarla.github.io/testes-automatizados-e2e-front-serve-rest_cypress/index.html" configurado automaticamente e aplicado apenas na branch principal (main)
+    # envionment com "name: github-pages" e "url: https://andressakarla.github.io/testes-automatizados-e2e-front-serve-rest_cypress/index.html" para deploy/publicar no github pages, configurado automaticamente e aplicado apenas na branch principal (main)
     environment: ${{ github.ref == 'refs/heads/main' && 'github-pages' || '' }}  
     
     # template cypress com todas as dependências necessárias para executar os testes
@@ -38,11 +38,12 @@ jobs:
         
       - name: Passo 3 - Instalar dependências, Executar testes automatizados E2E no navegador chrome em modo headless (2º plano) em um ambiente de produção e Gerar os resultados dos testes
         uses: cypress-io/github-action@v5.0.8
+        # possibilitar deploy/publicar no github pages inclusive quando há algum erro na execução dos testes 
         continue-on-error: true
         with:
           # forçar, mesmo tendo possíveis conflitos, a instalação das dependências do projeto do arquivo "package.json"
           install-command: npm install --force
-          # Executar testes automatizados E2E em modo headless (2º plano)
+          # executar testes automatizados E2E em modo headless (2º plano)
           command: npm run test
           browser: chrome
           
@@ -96,7 +97,7 @@ jobs:
         uses: actions/deploy-pages@v4
   
   cypress-firefox:
-    # esse job "cypress-firefox" somente é executado se o job anterior "cypress-chrome" for executado com sucesso
+    # este job "cypress-firefox" é executado após o término do job anterior "cypress-chrome" 
     needs: cypress-chrome
     runs-on: ubuntu-22.04
     
