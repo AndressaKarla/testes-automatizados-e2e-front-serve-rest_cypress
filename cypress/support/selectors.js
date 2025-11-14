@@ -25,7 +25,7 @@ const selectors = {
         },
         TEXTO_SISTEMA_ADMINISTRAR_ECOMMERCE: {
             SELECTOR: '.lead',
-            TEXTO: 'Este é seu sistema para administrar seu ecommerce..'
+            TEXTO: 'Este é seu sistema para administrar seu ecommerce.'
         }
     }
 }
