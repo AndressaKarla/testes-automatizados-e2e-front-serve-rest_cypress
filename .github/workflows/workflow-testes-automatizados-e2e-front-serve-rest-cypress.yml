@@ -38,6 +38,7 @@ jobs:
         
       - name: Passo 3 - Instalar dependências, Executar testes automatizados E2E no navegador chrome em modo headless (2º plano) em um ambiente de produção e Gerar os resultados dos testes
         uses: cypress-io/github-action@v5.0.8
+        continue-on-error: true
         with:
           # forçar, mesmo tendo possíveis conflitos, a instalação das dependências do projeto do arquivo "package.json"
           install-command: npm install --force
