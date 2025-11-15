@@ -1,0 +1,47 @@
+trigger:
+- main
+
+jobs:
+  - job: cypress-chrome
+    pool:
+      # agente de execução/runner
+      vmImage: ubuntu-22.04
+    
+    # template cypress com todas as dependências necessárias para executar os testes
+    container:
+      image: cypress/browsers:node18.12.0-chrome103-ff107
+      # usuário com perfil administrador
+      options: --user 1001
+      
+    steps:
+      - script: |
+          echo $USUARIO_ENV > ./cypress/fixtures/usuario.json
+        displayName: "Redirecionar os conteúdos de 'USUARIO_ENV' do Azure DevOps para os fixtures 'usuario.json', etc"
+        env:
+          USUARIO_ENV: $(USUARIO_ENV)
+          
+      - script: |
+          # forçar, mesmo tendo possíveis conflitos, a instalação das dependências do projeto do arquivo "package.json"
+          npm install --force
+        displayName: "Instalar dependências"
+      
+      - script: |
+          npm run test
+        displayName: "Executar testes automatizados E2E no navegador chrome em modo headless (2º plano) em um ambiente de produção e Gerar os resultados dos testes"
+        continueOnError: true
+
+      - task: PublishBuildArtifacts@1
+        displayName: "Armazenar os resultados dos testes em vídeos"
+        condition: always()
+        inputs:
+          PathtoPublish: './cypress/videos'
+          ArtifactName: 'cypress-videos-chrome'
+          ArtifactType: 'container'
+
+      - task: PublishBuildArtifacts@1
+        displayName: "Armazenar os resultados dos testes em screenshots"
+        condition: always()
+        inputs:
+          PathtoPublish: './cypress/screenshots'
+          ArtifactName: 'cypress-screenshots-chrome'
+          ArtifactType: 'container'
