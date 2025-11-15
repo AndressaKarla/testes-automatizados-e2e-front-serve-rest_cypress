@@ -10,8 +10,6 @@ jobs:
     # template cypress com todas as dependências necessárias para executar os testes
     container:
       image: cypress/browsers:node18.12.0-chrome103-ff107
-      # usuário com perfil administrador
-      options: --user 1001
       
     steps:
       - script: |
