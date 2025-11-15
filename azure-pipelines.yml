@@ -2,7 +2,7 @@ trigger:
 - main
 
 jobs:
-  - job: cypress-chrome
+  - job: cypress_chrome
     pool:
       # agente de execução/runner
       vmImage: ubuntu-22.04
