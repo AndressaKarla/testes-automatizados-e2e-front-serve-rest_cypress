@@ -43,3 +43,11 @@ jobs:
           PathtoPublish: './cypress/screenshots'
           ArtifactName: 'cypress-screenshots-chrome'
           ArtifactType: 'container'
+
+      - task: PublishBuildArtifacts@1
+        displayName: "Armazenar os resultados dos testes em report html"
+        condition: always()
+        inputs:
+          PathtoPublish: './cypress/reports'
+          ArtifactName: 'cypress-report-html-mochawesome-chrome'
+          ArtifactType: 'container'
