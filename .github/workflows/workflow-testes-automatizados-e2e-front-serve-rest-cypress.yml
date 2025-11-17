@@ -81,7 +81,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: actions/download-artifact@v4
         with: 
-          name: cypress-report-html-mochawesome-chrome
+          name: cypress-reports-html-mochawesome-xml-junit-chrome
           path: ./cypress/reports
 
       - name: Passo 9 - Armazenar pages apenas na branch principal (main)
