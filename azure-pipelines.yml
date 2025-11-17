@@ -56,7 +56,7 @@ jobs:
         condition: always()
         inputs:
           testResultsFormat: 'JUnit'
-          testResultsFiles: './cypress/reports/xml/*.xml' 
+          testResultsFiles: './cypress/reports/xml/junit-*.xml' 
           mergeTestResults: true
           failTaskOnFailedTests: false
           testRunTitle: 'Publicar os resultados dos testes em formato JUnit'
