@@ -53,11 +53,64 @@ jobs:
           ArtifactType: 'container'
 
       - task: PublishTestResults@2
+        displayName: 'Publicar os resultados dos testes em formato JUnit - chrome'
         condition: always()
         inputs:
           testResultsFormat: 'JUnit'
           testResultsFiles: '**/junit-*.xml' 
           mergeTestResults: true
           failTaskOnFailedTests: false
-          testRunTitle: 'Publicar os resultados dos testes em formato JUnit'
-        displayName: 'Publicar os resultados dos testes em formato JUnit'
+          testRunTitle: 'Publicar os resultados dos testes em formato JUnit - chrome'
+
+  - job: cypress_firefox
+    dependsOn: cypress_chrome
+    # este job "cypress-firefox" somente é executado se o job anterior "cypress-chrome" for executado com sucesso
+    condition: succeeded()
+
+    pool:
+      vmImage: ubuntu-22.04
+    
+    container:
+      image: cypress/browsers:node18.12.0-chrome103-ff107
+      
+    steps:
+      - script: |
+          echo $USUARIO_ENV > ./cypress/fixtures/usuario.json
+        displayName: "Redirecionar os conteúdos de 'USUARIO_ENV' do Azure DevOps para os fixtures 'usuario.json', etc"
+        env:
+          USUARIO_ENV: $(USUARIO_ENV)
+          
+      - script: |
+          npm install --force
+        displayName: "Instalar dependências"
+      
+      - script: |
+          npm run test:ff
+        displayName: "Executar testes automatizados E2E no navegador firefox em modo headless (2º plano) em um ambiente de produção e Gerar os resultados dos testes"
+        continueOnError: true
+
+      - task: PublishBuildArtifacts@1
+        displayName: "Armazenar os resultados dos testes em screenshots"
+        condition: always()
+        inputs:
+          PathtoPublish: './cypress/screenshots'
+          ArtifactName: 'cypress-screenshots-firefox'
+          ArtifactType: 'container'
+
+      - task: PublishBuildArtifacts@1
+        displayName: "Armazenar os resultados dos testes em reports html e xml" 
+        condition: always()
+        inputs:
+          PathtoPublish: './cypress/reports'
+          ArtifactName: 'cypress-reports-html-mochawesome-xml-junit-firefox'
+          ArtifactType: 'container'
+
+      - task: PublishTestResults@2
+        displayName: 'Publicar os resultados dos testes em formato JUnit - firefox'
+        condition: always()
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/junit-*.xml' 
+          mergeTestResults: true
+          failTaskOnFailedTests: false
+          testRunTitle: 'Publicar os resultados dos testes em formato JUnit - firefox'
