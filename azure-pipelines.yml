@@ -63,9 +63,8 @@ jobs:
           testRunTitle: 'Publicar os resultados dos testes em formato JUnit - chrome'
 
   - job: cypress_firefox
+    # este job "cypress_firefox" é executado após o término do job anterior "cypress_chrome"
     dependsOn: cypress_chrome
-    # este job "cypress-firefox" somente é executado se o job anterior "cypress-chrome" for executado com sucesso
-    condition: succeeded()
 
     pool:
       vmImage: ubuntu-22.04

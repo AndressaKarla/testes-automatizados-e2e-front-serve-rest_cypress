@@ -9,7 +9,7 @@ const selectors = {
             MSG_CAMPO_EMAIL_INVALIDO: 'Email deve ser um email válido',
             MSG_CAMPOS_EMAIL_OU_SENHA_INVALIDOS: 'Email e/ou senha inválidos',
             MSG_OBRIGATORIEDADE_CAMPOS_NOME_EMAIL_SENHA: '×Nome é obrigatório×Email é obrigatório×Password é obrigatório',
-            MSG_SUCESSO_CADASTRO_USUARIO: 'Cadastro realizado com sucesso.'
+            MSG_SUCESSO_CADASTRO_USUARIO: 'Cadastro realizado com sucesso'
         },
         OPCAO_CADASTRE_SE: 'a[type="button"]'
     },
