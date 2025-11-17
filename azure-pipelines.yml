@@ -45,9 +45,19 @@ jobs:
           ArtifactType: 'container'
 
       - task: PublishBuildArtifacts@1
-        displayName: "Armazenar os resultados dos testes em report html"
+        displayName: "Armazenar os resultados dos testes em reports html e xml" 
         condition: always()
         inputs:
           PathtoPublish: './cypress/reports'
-          ArtifactName: 'cypress-report-html-mochawesome-chrome'
+          ArtifactName: 'cypress-reports-html-mochawesome-xml-junit-chrome'
           ArtifactType: 'container'
+
+      - task: PublishTestResults@2
+        condition: always()
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: './cypress/reports/xml/*.xml' 
+          mergeTestResults: true
+          failTaskOnFailedTests: false
+          testRunTitle: 'Publicar os resultados dos testes em formato JUnit'
+        displayName: 'Publicar os resultados dos testes em formato JUnit'
