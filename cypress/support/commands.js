@@ -59,17 +59,27 @@ Cypress.Commands.add('cadastrarUsuario', (nome = '', email = '', senha = '') => 
 // App Actions
 Cypress.Commands.add('obterPorEmailEexcluirUsuarioPorIdPelaAPI', (email) => {
   cy.request({
-    url: Cypress.env('baseUri') + `/usuarios?email=${email}`,
     method: 'GET',
+    url: Cypress.env('baseUri') + `/usuarios?email=${email}`,
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    failOnStatusCode: false
   }).then(response => {
-    let retornoGet = response.body
+    const retornoGet = response.body
 
     if ((retornoGet.quantidade) == 1) {
-      let idUsuarioRetornado = retornoGet.usuarios[0]._id
+      const idUsuarioRetornado = retornoGet.usuarios[0]._id
 
       cy.request({
-        url: Cypress.env('baseUri') + `/usuarios/${idUsuarioRetornado}`,
         method: 'DELETE',
+        url: Cypress.env('baseUri') + `/usuarios/${idUsuarioRetornado}`,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        failOnStatusCode: false
       }).then((response) => {
         expect(response.status).to.eql(200)
       })
@@ -79,18 +89,19 @@ Cypress.Commands.add('obterPorEmailEexcluirUsuarioPorIdPelaAPI', (email) => {
 
 Cypress.Commands.add('cadastrarUsuarioPelaAPI', (nome, email, senha, admin) => {
   cy.request({
-    url: Cypress.env('baseUri') + '/usuarios',
     method: 'POST',
+    url: Cypress.env('baseUri') + '/usuarios',
     headers: {
-      'accept': 'application/json', 
-      'content-type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
     body: {
       "nome": nome,
       "email": email,
       "password": senha,
       "administrador": admin
-    }
+    },
+    failOnStatusCode: false
   }).then((response) => {
     expect(response.status).to.eql(201)
   })
